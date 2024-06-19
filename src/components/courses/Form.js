@@ -24,6 +24,15 @@ export default Form = (props) => {
                     }}
                 />
             </div>
+            <div className="form-group">
+                <label>
+                    Category
+                </label>
+                <select className="form-control">
+                    <option value="Undergrad">Undergrad</option>
+                    <option value="Graduate">Graduate</option>
+                </select>
+            </div>
             <hr/>
             <table className="table table-bordered">
                 <tbody>
