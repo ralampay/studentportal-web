@@ -2,9 +2,9 @@
   "name": "studentportal-web",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "echo \"Hello World\""
+    "start": "node build.js --watch --dev"
   },
   "author": "",
   "license": "ISC",
