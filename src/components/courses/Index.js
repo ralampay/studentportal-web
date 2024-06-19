@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default Index = (props) => {
 
-    const [courses, setCourses] = useState([
-        {
-            id: 1,
-            name: "BS Computer Science",
-            category: "Undergrad"
-        },
-        {
-            id: 2,
-            name: "MS Computer Science",
-            category: "Graduate"
-        }
-    ]);
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:3000/courses").then((payload) => {
+            console.log(payload.data);
+            setCourses(payload.data);
+        })
+    }, [])
 
     return (
         <div>
