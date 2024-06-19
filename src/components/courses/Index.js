@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { getCourses } from "../../services/CoursesService";
 
 export default Index = (props) => {
 
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/courses").then((payload) => {
-            console.log(payload.data);
+        getCourses().then((payload) => {
             setCourses(payload.data);
-        })
+        });
     }, [])
 
     return (
