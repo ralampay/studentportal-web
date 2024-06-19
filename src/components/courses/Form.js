@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { DEFAULT_COURSE } from "../../helpers/defaults";
 
 export default Form = (props) => {
 
-    // States of Form
-    const [name, setName] = useState("");
+    const [course, setCourse] = useState(DEFAULT_COURSE);
 
     return (
         <div>
@@ -16,11 +16,15 @@ export default Form = (props) => {
                     Name:
                 </label>
                 <input
-                    value={name}
+                    value={course.name}
                     className="form-control"
                     onChange={(event) => {
                         let val = event.target.value;
-                        setName(val);
+
+                        let obj = {...course};
+                        obj.name = val;
+
+                        setCourse(obj);
                     }}
                 />
             </div>
@@ -28,7 +32,17 @@ export default Form = (props) => {
                 <label>
                     Category
                 </label>
-                <select className="form-control">
+                <select 
+                    value={course.category}
+                    className="form-control"
+                    onChange={(event) => {
+                        let obj = {...course};
+                        obj.category = event.target.value;
+
+                        setCourse(obj);
+                    }}
+                >
+                    <option value="">-- SELECT --</option>
                     <option value="Undergrad">Undergrad</option>
                     <option value="Graduate">Graduate</option>
                 </select>
@@ -41,7 +55,15 @@ export default Form = (props) => {
                             Name
                         </th>
                         <td>
-                            {name}
+                            {course.name}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Category
+                        </th>
+                        <td>
+                            {course.category}
                         </td>
                     </tr>
                 </tbody>
