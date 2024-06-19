@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import { DEFAULT_COURSE } from "../../helpers/defaults";
+import { saveCourse } from "../../services/CoursesService";
 
 export default Form = (props) => {
 
     const [course, setCourse] = useState(DEFAULT_COURSE);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSave = () => {
+        setIsLoading(true);
+
+        saveCourse({...course}).then((payload) => {
+            console.log(payload.data);
+            alert("Added a new course!");
+            setIsLoading(false);
+            setCourse(DEFAULT_COURSE);
+        })
+    }
 
     return (
         <div>
@@ -18,6 +31,7 @@ export default Form = (props) => {
                 <input
                     value={course.name}
                     className="form-control"
+                    disabled={isLoading}
                     onChange={(event) => {
                         let val = event.target.value;
 
@@ -35,6 +49,7 @@ export default Form = (props) => {
                 <select 
                     value={course.category}
                     className="form-control"
+                    disabled={isLoading}
                     onChange={(event) => {
                         let obj = {...course};
                         obj.category = event.target.value;
@@ -48,26 +63,15 @@ export default Form = (props) => {
                 </select>
             </div>
             <hr/>
-            <table className="table table-bordered">
-                <tbody>
-                    <tr>
-                        <th>
-                            Name
-                        </th>
-                        <td>
-                            {course.name}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Category
-                        </th>
-                        <td>
-                            {course.category}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <button
+                className="btn btn-success"
+                disabled={isLoading}
+                onClick={() => {
+                    handleSave();
+                }}
+            >
+                Save Course
+            </button>
         </div>
     );
 }
