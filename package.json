@@ -4,7 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "node build.js --watch --dev"
+    "start": "node build.js --watch --dev",
+    "mock-api": "npx json-server db.json"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "esbuild": "^0.21.5",
     "esbuild-envfile-plugin": "^1.0.7",
     "esbuild-sass-plugin": "^3.3.1",
+    "json-server": "^1.0.0-beta.1",
     "postcss": "^8.4.38",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.2",
