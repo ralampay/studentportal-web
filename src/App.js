@@ -7,6 +7,7 @@ import {
 } from "./services/StudentsService";
 
 export default App = () => {
+    const [students, setStudents] = useState([]);
 
     const saveStudent = (student) => {
         console.log("Student object to save:");
@@ -19,7 +20,10 @@ export default App = () => {
         setStudents(newStudents);
     }
 
+    const [lock, setLock] = useState("");
+
     const refreshStudents = () => {
+        console.log("Students length: ", students.length);
         getStudents().then((payload) => {
             setStudents(payload.data);
         }).catch((payload) => {
@@ -27,16 +31,17 @@ export default App = () => {
             console.log(payload);
         });
     }
+    
 
-    useEffect(refreshStudents, []);
-
-    const [students, setStudents] = useState([]);
+    useEffect(refreshStudents, [lock]);
 
     return (
         <div className="container">
             <Header/>
             <StudentForm
-                handleSave={saveStudent}
+                onSaveStudent={() => {
+                    setLock("new value");;
+                }}
             />
             <hr/>
             <StudentIndex

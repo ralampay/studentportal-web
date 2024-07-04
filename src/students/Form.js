@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import {
+    saveStudent
+} from "../services/StudentsService";
 
 export default Form = (props) => {
 
     let {
-        handleSave
+        onSaveStudent
     } = props;
 
     // Create states for this component
@@ -52,17 +55,20 @@ export default Form = (props) => {
                     setIsLoading(true);
 
                     let student = {
-                        id: uuidv4(),
                         firstName: firstName,
                         lastName: lastName
                     }
 
-                    handleSave(student);
+                    saveStudent(student).then((payload) => {
+                        onSaveStudent();
 
-                    setFirstName("");
-                    setLastName("");
-
-                    setIsLoading(false);
+                        // Clear out the form
+                        setFirstName("");
+                        setLastName("");
+    
+                        // Allow input again
+                        setIsLoading(false);
+                    })
                 }}
             >
                 Save Record

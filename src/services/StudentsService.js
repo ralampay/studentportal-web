@@ -6,3 +6,10 @@ export const getStudents = () => {
         `${API_BASE_URL}/students`
     )
 }
+
+export const saveStudent = (student) => {
+    return axios.post(
+        `${API_BASE_URL}/students`,
+        student
+    )
+}
