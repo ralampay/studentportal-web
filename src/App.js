@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Header from "./Header";
 import StudentForm from "./students/Form";
+import StudentIndex from "./students/Index";
 
 export default App = () => {
 
@@ -11,6 +12,9 @@ export default App = () => {
             <Header/>
             <StudentForm/>
             <hr/>
+            <StudentIndex
+                students={[]}
+            />
         </div>
     )
 }

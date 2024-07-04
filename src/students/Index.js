@@ -7,9 +7,12 @@ export default Index = (props) => {
 
     return (
         <div>
-            {students.length == 0 &&
+            {students.length == 0 ?
                 <center>
                     No students found.
+                </center> :
+                <center>
+                    students list
                 </center>
             }
         </div>
