@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import StudentDisplay from "./Display";
 
 export default Index = (props) => {
     let {
@@ -14,11 +15,10 @@ export default Index = (props) => {
                 <div>
                     {students.map((student) => {
                         return (
-                            <div>
-                                <h3>
-                                    {student.lastName}, {student.firstName}
-                                </h3>
-                            </div>
+                            <StudentDisplay
+                                key={`student-${student.id}`}
+                                student={student}
+                            />
                         )
                     })}
                 </div>
