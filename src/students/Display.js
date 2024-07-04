@@ -10,6 +10,9 @@ export default Display = (props) => {
             <h3>
                 {student.lastName}, {student.firstName}
             </h3>
+            <button>
+                Delete
+            </button>
         </div>
     )
 }
