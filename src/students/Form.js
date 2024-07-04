@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export default Form = (props) => {
 
@@ -51,11 +52,15 @@ export default Form = (props) => {
                     setIsLoading(true);
 
                     let student = {
+                        id: uuidv4(),
                         firstName: firstName,
                         lastName: lastName
                     }
 
                     handleSave(student);
+
+                    setFirstName("");
+                    setLastName("");
 
                     setIsLoading(false);
                 }}
