@@ -1,7 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "./Header";
 import StudentForm from "./students/Form";
 import StudentIndex from "./students/Index";
+import {
+    getStudents
+} from "./services/StudentsService";
 
 export default App = () => {
 
@@ -15,6 +18,17 @@ export default App = () => {
 
         setStudents(newStudents);
     }
+
+    const refreshStudents = () => {
+        getStudents().then((payload) => {
+            setStudents(payload.data);
+        }).catch((payload) => {
+            console.log("Error in fetching students");
+            console.log(payload);
+        });
+    }
+
+    useEffect(refreshStudents, []);
 
     const [students, setStudents] = useState([]);
 
