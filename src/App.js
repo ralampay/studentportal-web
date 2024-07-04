@@ -5,6 +5,11 @@ import StudentIndex from "./students/Index";
 
 export default App = () => {
 
+    const saveStudent = (student) => {
+        console.log("Student object to save:");
+        console.log(student);
+    }
+
     const [students, setStudents] = useState([
         {
             id: 1,
@@ -21,7 +26,9 @@ export default App = () => {
     return (
         <div className="container">
             <Header/>
-            <StudentForm/>
+            <StudentForm
+                handleSave={saveStudent}
+            />
             <hr/>
             <StudentIndex
                 students={students}

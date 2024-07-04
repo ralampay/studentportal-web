@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-export default Form = () => {
+export default Form = (props) => {
+
+    let {
+        handleSave
+    } = props;
 
     // Create states for this component
     // const[stateVariable, setStateVariable] = useState(defaultValue);
@@ -45,6 +49,15 @@ export default Form = () => {
                 disabled={isLoading}
                 onClick={() => {
                     setIsLoading(true);
+
+                    let student = {
+                        firstName: firstName,
+                        lastName: lastName
+                    }
+
+                    handleSave(student);
+
+                    setIsLoading(false);
                 }}
             >
                 Save Record
