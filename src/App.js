@@ -5,7 +5,18 @@ import StudentIndex from "./students/Index";
 
 export default App = () => {
 
-    const [students, setStudents] = useState([]);
+    const [students, setStudents] = useState([
+        {
+            id: 1,
+            firstName: "Raphael",
+            lastName: "Alampay"
+        },
+        {
+            id: 2,
+            firstName: "Leonardo",
+            lastName: "Alampay"
+        }
+    ]);
 
     return (
         <div className="container">
@@ -13,7 +24,7 @@ export default App = () => {
             <StudentForm/>
             <hr/>
             <StudentIndex
-                students={[]}
+                students={students}
             />
         </div>
     )

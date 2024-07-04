@@ -11,9 +11,17 @@ export default Index = (props) => {
                 <center>
                     No students found.
                 </center> :
-                <center>
-                    students list
-                </center>
+                <div>
+                    {students.map((student) => {
+                        return (
+                            <div>
+                                <h3>
+                                    {student.lastName}, {student.firstName}
+                                </h3>
+                            </div>
+                        )
+                    })}
+                </div>
             }
         </div>
     )
