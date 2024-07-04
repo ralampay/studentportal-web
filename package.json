@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node build.js --dev --watch",
+    "mock-server": "npx json-server db.json",
     "commit-checkpoint": "git add --all && git commit -m 'checkpoint' && git push origin master"
   },
   "author": "",

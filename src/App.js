@@ -16,18 +16,7 @@ export default App = () => {
         setStudents(newStudents);
     }
 
-    const [students, setStudents] = useState([
-        {
-            id: 1,
-            firstName: "Raphael",
-            lastName: "Alampay"
-        },
-        {
-            id: 2,
-            firstName: "Leonardo",
-            lastName: "Alampay"
-        }
-    ]);
+    const [students, setStudents] = useState([]);
 
     return (
         <div className="container">
