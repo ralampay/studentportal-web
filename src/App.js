@@ -20,8 +20,6 @@ export default App = () => {
         setStudents(newStudents);
     }
 
-    const [lock, setLock] = useState("");
-
     const refreshStudents = () => {
         console.log("Students length: ", students.length);
         getStudents().then((payload) => {
@@ -33,14 +31,14 @@ export default App = () => {
     }
     
 
-    useEffect(refreshStudents, [lock]);
+    useEffect(refreshStudents, []);
 
     return (
         <div className="container">
             <Header/>
             <StudentForm
                 onSaveStudent={() => {
-                    setLock("new value");;
+                    refreshStudents();
                 }}
             />
             <hr/>
