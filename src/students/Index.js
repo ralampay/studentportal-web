@@ -17,12 +17,16 @@ export default Index = (props) => {
                 <div>
                     {students.map((student) => {
                         return (
-                            <StudentDisplay
+                            <React.Fragment
                                 key={`student-${student.id}`}
-                                student={student}
-                                onDelete={onDelete}
-                                onEditClicked={onEditClicked}
-                            />
+                            >
+                                <StudentDisplay
+                                    student={student}
+                                    onDelete={onDelete}
+                                    onEditClicked={onEditClicked}
+                                />
+                                <div className="mb-2"/>
+                            </React.Fragment>
                         )
                     })}
                 </div>
