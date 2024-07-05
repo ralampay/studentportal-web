@@ -17,9 +17,9 @@ export default ModalConfirmation = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                    <p>
-                        Are you sure?
-                    </p>
+                <p>
+                    Are you sure?
+                </p>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
