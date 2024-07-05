@@ -31,6 +31,7 @@ export default App = () => {
         });
     }
     
+    const [studentId, setStudentId] = useState(null);
 
     useEffect(refreshStudents, []);
 
@@ -39,11 +40,16 @@ export default App = () => {
             <Header/>
             <StudentForm
                 onSaveStudent={refreshStudents}
+                id={studentId}
             />
             <hr/>
             <StudentIndex
                 students={students}
                 onDelete={refreshStudents}
+                onEditClicked={(id) => {
+                    console.log(`onEditClicked: ${id}`);
+                    setStudentId(id);
+                }}
             />
         </div>
     )

@@ -4,7 +4,8 @@ import StudentDisplay from "./Display";
 export default Index = (props) => {
     let {
         students,
-        onDelete
+        onDelete,
+        onEditClicked
     } = props;
 
     return (
@@ -20,6 +21,7 @@ export default Index = (props) => {
                                 key={`student-${student.id}`}
                                 student={student}
                                 onDelete={onDelete}
+                                onEditClicked={onEditClicked}
                             />
                         )
                     })}

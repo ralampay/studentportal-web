@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
-    saveStudent
+    saveStudent,
+    getStudent
 } from "../services/StudentsService";
 import { DEFAULT_STUDENT } from "../Defaults";
 
 export default Form = (props) => {
 
     let {
-        onSaveStudent
+        onSaveStudent,
+        id
     } = props;
 
     // Create states for this component
@@ -17,6 +19,14 @@ export default Form = (props) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const [student, setStudent] = useState(DEFAULT_STUDENT);
+
+    useEffect(() => {
+        if (id) {
+            getStudent(id).then((payload) => {
+                setStudent(payload.data);
+            });
+        }
+    }, [id])
 
     return (
         <div>
