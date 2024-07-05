@@ -39,7 +39,10 @@ export default App = () => {
         <div className="container">
             <Header/>
             <StudentForm
-                onSaveStudent={refreshStudents}
+                onSaveStudent={() => {
+                    refreshStudents();
+                    setStudentId(null);
+                }}
                 id={studentId}
             />
             <hr/>
