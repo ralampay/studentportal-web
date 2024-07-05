@@ -15,8 +15,9 @@ export default Display = (props) => {
             <button
                 className="btn btn-danger btn-sm"
                 onClick={() => {
-                    deleteStudent(student.id);
-                    onDelete();
+                    deleteStudent(student.id).then(() => {
+                        onDelete();
+                    });
                 }}
             >
                 Delete

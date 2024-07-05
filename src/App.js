@@ -21,6 +21,7 @@ export default App = () => {
     }
 
     const refreshStudents = () => {
+        console.log("Refereshing student list...");
         console.log("Students length: ", students.length);
         getStudents().then((payload) => {
             setStudents(payload.data);
