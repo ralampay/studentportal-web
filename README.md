@@ -10,6 +10,12 @@
 
 * `students`
 
+3. Install all packages based on the `pacakge.json`:
+
+```
+npm install
+```
+
 3. To run the application server:
 
 ```
