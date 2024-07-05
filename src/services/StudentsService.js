@@ -8,10 +8,17 @@ export const getStudents = () => {
 }
 
 export const saveStudent = (student) => {
-    return axios.post(
-        `${API_BASE_URL}/students`,
-        student
-    )
+    if (student.id) {
+        return axios.put(
+            `${API_BASE_URL}/students/${student.id}`,
+            student
+        )
+    } else {
+        return axios.post(
+            `${API_BASE_URL}/students`,
+            student
+        )
+    }
 }
 
 export const deleteStudent = (id) => {
