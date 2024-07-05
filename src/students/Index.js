@@ -3,7 +3,8 @@ import StudentDisplay from "./Display";
 
 export default Index = (props) => {
     let {
-        students
+        students,
+        onDelete
     } = props;
 
     return (
@@ -18,6 +19,7 @@ export default Index = (props) => {
                             <StudentDisplay
                                 key={`student-${student.id}`}
                                 student={student}
+                                onDelete={onDelete}
                             />
                         )
                     })}

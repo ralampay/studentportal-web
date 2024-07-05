@@ -37,13 +37,12 @@ export default App = () => {
         <div className="container">
             <Header/>
             <StudentForm
-                onSaveStudent={() => {
-                    refreshStudents();
-                }}
+                onSaveStudent={refreshStudents}
             />
             <hr/>
             <StudentIndex
                 students={students}
+                onDelete={refreshStudents}
             />
         </div>
     )

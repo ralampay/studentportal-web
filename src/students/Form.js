@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
 import {
     saveStudent
 } from "../services/StudentsService";
+import { DEFAULT_STUDENT } from "../Defaults";
 
 export default Form = (props) => {
 
@@ -12,9 +12,11 @@ export default Form = (props) => {
 
     // Create states for this component
     // const[stateVariable, setStateVariable] = useState(defaultValue);
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+    // const [firstName, setFirstName] = useState("");
+    // const [lastName, setLastName] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+
+    const [student, setStudent] = useState(DEFAULT_STUDENT);
 
     return (
         <div>
@@ -23,11 +25,14 @@ export default Form = (props) => {
                     First Name:
                 </label>
                 <input
-                    value={firstName}
+                    value={student.firstName}
                     disabled={isLoading}
                     className="form-control"
                     onChange={(event) => {
-                        setFirstName(event.target.value);
+                        let _student = {...student};
+                        _student.firstName = event.target.value;
+
+                        setStudent(_student);
                     }}
                 />
             </div>
@@ -37,16 +42,19 @@ export default Form = (props) => {
                     Last Name:
                 </label>
                 <input
-                    value={lastName}
+                    value={student.lastName}
                     disabled={isLoading}
                     className="form-control"
                     onChange={(event) => {
-                        setLastName(event.target.value);
+                        let _student = {...student};
+                        _student.lastName = event.target.value;
+
+                        setStudent(_student);
                     }}
                 />
             </div>
             <hr/>
-            <h4>{lastName}, {firstName}</h4>
+            <h4>{student.lastName}, {student.firstName}</h4>
             <hr/>
             <button
                 className="btn btn-primary"
@@ -54,17 +62,11 @@ export default Form = (props) => {
                 onClick={() => {
                     setIsLoading(true);
 
-                    let student = {
-                        firstName: firstName,
-                        lastName: lastName
-                    }
-
-                    saveStudent(student).then((payload) => {
+                    saveStudent({...student}).then((payload) => {
                         onSaveStudent();
 
                         // Clear out the form
-                        setFirstName("");
-                        setLastName("");
+                        setStudent(DEFAULT_STUDENT);
     
                         // Allow input again
                         setIsLoading(false);

@@ -1,8 +1,10 @@
 import React, {useState} from "react";
+import { deleteStudent } from "../services/StudentsService";
 
 export default Display = (props) => {
     let {
-        student
+        student,
+        onDelete
     } = props;
 
     return (
@@ -10,7 +12,13 @@ export default Display = (props) => {
             <h3>
                 {student.lastName}, {student.firstName}
             </h3>
-            <button>
+            <button
+                className="btn btn-danger btn-sm"
+                onClick={() => {
+                    deleteStudent(student.id);
+                    onDelete();
+                }}
+            >
                 Delete
             </button>
         </div>

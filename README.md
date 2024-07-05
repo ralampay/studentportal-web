@@ -16,13 +16,13 @@
 npm install
 ```
 
-3. To run the application server:
+4. To run the application server:
 
 ```
 npm run start
 ```
 
-4. To run the mock backend:
+5. To run the mock backend:
 
 ```
 npm run mock-server
