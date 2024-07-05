@@ -27,3 +27,7 @@ npm run start
 ```
 npm run mock-server
 ```
+
+## Tech Stack
+
+* https://react-bootstrap.netlify.app/
