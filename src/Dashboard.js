@@ -4,6 +4,9 @@ export default Dashboard = () => {
     return (
         <div>
             Dashboard
+            <a href="/#/courses">
+                Courses
+            </a>
         </div>
     )
 }
