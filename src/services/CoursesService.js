@@ -8,3 +8,9 @@ export const getCourses = (args) => {
         `${API_BASE_URL}/courses`
     )
 }
+
+export const getCourse = (id) => {
+    return axios.get(
+        `${API_BASE_URL}/courses/${id}`
+    )
+}
