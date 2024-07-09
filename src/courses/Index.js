@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getCourses } from "../services/CoursesService";
+import { useNavigate } from "react-router-dom";
 
 export default Index = (props) => {
+
+    // Create a navigation mechanism
+    const navigate = useNavigate();
 
     const [courses, setCourses] = useState([]);
 
@@ -43,6 +47,9 @@ export default Index = (props) => {
                                             <div className="col text-end">
                                                 <button
                                                     className="btn btn-primary"
+                                                    onClick={() => {
+                                                        navigate(`/courses/${course.id}`);
+                                                    }}
                                                 >
                                                     Go to Course
                                                 </button>
