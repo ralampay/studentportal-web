@@ -34,9 +34,20 @@ export default Index = (props) => {
                             <React.Fragment key={`course-${course.id}`}>
                                 <div className="card">
                                     <div className="card-body">
-                                        <h4>
-                                            {course.name}
-                                        </h4>
+                                        <div className="row">
+                                            <div className="col">
+                                                <h4>
+                                                    {course.name}
+                                                </h4>
+                                            </div>
+                                            <div className="col text-end">
+                                                <button
+                                                    className="btn btn-primary"
+                                                >
+                                                    Go to Course
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="mb-4"/>
