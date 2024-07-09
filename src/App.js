@@ -4,6 +4,7 @@ import {
     Route
 } from "react-router-dom";
 import CoursesIndex from "./courses/Index";
+import CoursesShow from "./courses/Show";
 import Dashboard from "./Dashboard";
 import Navigation from "./Navigation";
 
@@ -21,6 +22,10 @@ export default App = () => {
                     <Route
                         path="/courses"
                         element={<CoursesIndex/>}
+                    />
+                    <Route
+                        path="/courses/:id"
+                        element={<CoursesShow/>}
                     />
                 </Routes>
             </div>
