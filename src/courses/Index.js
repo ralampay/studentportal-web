@@ -29,7 +29,20 @@ export default Index = (props) => {
                 </center>
                 :
                 <div>
-                    Courses Here
+                    {courses.map((course) => {
+                        return (
+                            <React.Fragment key={`course-${course.id}`}>
+                                <div className="card">
+                                    <div className="card-body">
+                                        <h4>
+                                            {course.name}
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div className="mb-4"/>
+                            </React.Fragment>
+                        )
+                    })}
                 </div>
             }
         </div>
