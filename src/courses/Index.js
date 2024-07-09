@@ -20,9 +20,23 @@ export default Index = (props) => {
 
     return (
         <div>
-            <h1>
-                List of Courses
-            </h1>
+            <div className="row">
+                <div className="col">
+                    <h1>
+                        List of Courses
+                    </h1>
+                </div>
+                <div className="col text-end">
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => {
+                            navigate('/courses/new');
+                        }}
+                    >
+                        New Course
+                    </button>
+                </div>
+            </div>
             <hr/>
             {courses.length == 0
                 ?

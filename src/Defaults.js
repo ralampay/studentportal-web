@@ -4,6 +4,5 @@ export const DEFAULT_STUDENT = {
 }
 
 export const DEFAULT_COURSE = {
-    id: "",
     name: ""
 }

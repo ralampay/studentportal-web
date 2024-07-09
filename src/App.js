@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import CoursesIndex from "./courses/Index";
 import CoursesShow from "./courses/Show";
+import CoursesForm from "./courses/Form";
 import Dashboard from "./Dashboard";
 import Navigation from "./Navigation";
 
@@ -26,6 +27,14 @@ export default App = () => {
                     <Route
                         path="/courses/:id"
                         element={<CoursesShow/>}
+                    />
+                    <Route
+                        path="/courses/new"
+                        element={<CoursesForm/>}
+                    />
+                    <Route
+                        path="/courses/:id/edit"
+                        element={<CoursesForm/>}
                     />
                 </Routes>
             </div>
