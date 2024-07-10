@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { destroySession, getCurrentUser } from "./services/AuthService";
 
 export default Navigation = () => {
+
+    const currentUser = getCurrentUser();
+
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
@@ -29,6 +33,20 @@ export default Navigation = () => {
                             </Link>
                         </li>
                     </ul>
+
+                    <div className="text-end">
+                        Logged in as: {currentUser.username}
+                        <span className="ms-2"/>
+                        <button
+                            className="btn btn-danger btn-sm"
+                            onClick={() => {
+                                destroySession();
+                                window.location.reload();
+                            }}
+                        >
+                            Logout
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
