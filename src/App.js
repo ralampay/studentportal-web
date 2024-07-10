@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import StudentsIndex from "./students/Index";
 import StudentsForm from "./students/Form";
+import StudentsShow from "./students/Show";
 import CoursesIndex from "./courses/Index";
 import CoursesShow from "./courses/Show";
 import CoursesForm from "./courses/Form";
@@ -33,6 +34,10 @@ export default App = () => {
                     <Route
                         path="/students/:id/edit"
                         element={<StudentsForm/>}
+                    />
+                    <Route
+                        path="/students/:id"
+                        element={<StudentsShow/>}
                     />
                     <Route
                         path="/courses"

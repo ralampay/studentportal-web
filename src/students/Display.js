@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { deleteStudent } from "../services/StudentsService";
 import ModalConfirmation from "../commons/ModalConfirmation";
+import { useNavigate } from "react-router-dom";
 
 export default Display = (props) => {
 
@@ -9,6 +10,8 @@ export default Display = (props) => {
         onDelete,
         onEditClicked
     } = props;
+
+    const navigate = useNavigate();
 
     const [isOpenDeleteConfirmation, setIsOpenDeleteConfirmation] = useState(false);
 
@@ -37,6 +40,15 @@ export default Display = (props) => {
                     <h3>
                         {student.lastName}, {student.firstName}
                     </h3>
+                    <button
+                        className="btn btn-info btn-sm"
+                        onClick={() => {
+                            navigate(`/students/${student.id}`);
+                        }}
+                    >
+                        Show
+                    </button>
+                    <span className="me-2"/>
                     <button
                         className="btn btn-info btn-sm"
                         onClick={() => {
