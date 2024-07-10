@@ -23,6 +23,11 @@ export default Navigation = () => {
                                 Courses
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/students" className="nav-link">
+                                Students
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>

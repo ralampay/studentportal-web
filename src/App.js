@@ -3,6 +3,8 @@ import {
     Routes,
     Route
 } from "react-router-dom";
+import StudentsIndex from "./students/Index";
+import StudentsForm from "./students/Form";
 import CoursesIndex from "./courses/Index";
 import CoursesShow from "./courses/Show";
 import CoursesForm from "./courses/Form";
@@ -19,6 +21,18 @@ export default App = () => {
                     <Route
                         path="/"
                         element={<Dashboard/>}
+                    />
+                    <Route
+                        path="/students"
+                        element={<StudentsIndex/>}
+                    />
+                    <Route
+                        path="/students/new"
+                        element={<StudentsForm/>}
+                    />
+                    <Route
+                        path="/students/:id/edit"
+                        element={<StudentsForm/>}
                     />
                     <Route
                         path="/courses"
