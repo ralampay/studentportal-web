@@ -40,6 +40,13 @@ export default Display = (props) => {
                     <h3>
                         {student.lastName}, {student.firstName}
                     </h3>
+                    {student.course ?
+                        <h5 className="text-muted">
+                            {student.course.name}
+                        </h5>
+                        :
+                        <div/>
+                    }
                     <button
                         className="btn btn-info btn-sm"
                         onClick={() => {

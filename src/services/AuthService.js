@@ -6,8 +6,7 @@ import {
 } from "env";
 
 export const login = (username, password) => {
-    // TODO: This should be a POST request
-    return axios.get(
+    return axios.post(
         `${API_BASE_URL}/login`,
         {
             username: username,

@@ -16,6 +16,7 @@ export default Login = () => {
         }).catch((payload) => {
             console.log("Error in logging in");
             console.log(payload);
+            setIsLoading(false);
         })
     }
 
