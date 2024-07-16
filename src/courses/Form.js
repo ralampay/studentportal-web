@@ -7,6 +7,7 @@ export default Form = (props) => {
 
     const [course, setCourse] = useState(DEFAULT_COURSE);
     const [isLoading, setIsLoading] = useState(false);
+    const [errors, setErrors] = useState({});
 
     const navigate = useNavigate();
 
@@ -27,6 +28,7 @@ export default Form = (props) => {
 
     const handleSave = () => {
         setIsLoading(true);
+        setErrors({});
 
         saveCourse({...course}).then((payload) => {
             navigate(`/courses/${payload.data.id}`);
@@ -34,6 +36,8 @@ export default Form = (props) => {
         }).catch((payload) => {
             console.log("Error in saving course");
             console.log(payload);
+
+            setErrors(payload.response.data);
         }).finally(() => {
             setIsLoading(false);
         })
