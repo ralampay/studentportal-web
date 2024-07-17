@@ -35,7 +35,7 @@ export default Navigation = () => {
                     </ul>
 
                     <div className="text-end">
-                        Logged in as: {currentUser.username}
+                        Logged in as: {currentUser.username} ({currentUser.role})
                         <span className="ms-2"/>
                         <button
                             className="btn btn-danger btn-sm"

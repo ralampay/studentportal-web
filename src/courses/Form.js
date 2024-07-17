@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { DEFAULT_COURSE } from "../Defaults";
 import { saveCourse, getCourse } from "../services/CoursesService";
 import { useParams, useNavigate } from "react-router-dom";
+import {
+    getInputClassName,
+    renderInputErrors
+} from "../helpers/AppHelper";
 
 export default Form = (props) => {
 
@@ -55,7 +59,7 @@ export default Form = (props) => {
                 <input
                     value={course.name}
                     disabled={isLoading}
-                    className="form-control"
+                    className={getInputClassName(errors, 'name')}
                     onChange={(event) => {
                         let _course = {...course}
                         _course.name = event.target.value;
@@ -63,6 +67,7 @@ export default Form = (props) => {
                         setCourse(_course);
                     }}
                 />
+                {renderInputErrors(errors, 'name')}
             </div>
             <hr/>
             <button 

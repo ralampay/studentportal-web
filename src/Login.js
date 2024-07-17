@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import { login, createSession } from "./services/AuthService";
+import {
+    getInputClassName,
+    renderInputErrors
+} from "./helpers/AppHelper";
 
 export default Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [errors, setErrors] = useState({});
 
     const handleLogin = () => {
         setIsLoading(true);
+        setErrors({});
+
         login(username, password).then((payload) => {
+            console.log(payload.data);
             createSession(payload.data);
 
             // refresh page
@@ -16,6 +24,7 @@ export default Login = () => {
         }).catch((payload) => {
             console.log("Error in logging in");
             console.log(payload);
+            setErrors(payload.response.data);
             setIsLoading(false);
         })
     }
@@ -34,12 +43,13 @@ export default Login = () => {
                         </label>
                         <input
                             value={username}
-                            className="form-control"
+                            className={getInputClassName(errors, 'username')}
                             disabled={isLoading}
                             onChange={(event) => {
                                 setUsername(event.target.value);
                             }}
                         />
+                        {renderInputErrors(errors, 'username')}
                     </div>
                     <div className="mt-2"/>
                     <div className="form-group">
@@ -49,12 +59,13 @@ export default Login = () => {
                         <input
                             value={password}
                             type="password"
-                            className="form-control"
+                            className={getInputClassName(errors, 'password')}
                             disabled={isLoading}
                             onChange={(event) => {
                                 setPassword(event.target.value);
                             }}
                         />
+                        {renderInputErrors(errors, 'password')}
                     </div>
                     <hr/>
                     <button 
