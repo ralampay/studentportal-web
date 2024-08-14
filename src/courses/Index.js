@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCourses } from "../services/CoursesService";
 import { useNavigate } from "react-router-dom";
+import CourseCount from "../CourseCount";
 
 export default Index = (props) => {
 
@@ -25,6 +26,9 @@ export default Index = (props) => {
                     <h1>
                         List of Courses
                     </h1>
+                    <h2>
+                        <CourseCount/>
+                    </h2>
                 </div>
                 <div className="col text-end">
                     <button
